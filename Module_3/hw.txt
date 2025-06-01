@@ -1,0 +1,31 @@
+Programming Assignment
+In the English system of weights, we have pounds and ounces, with 1 pound equal to 16 ounces.
+
+Write a class to implement English weights. The type name of the class must be called EnglishWeight.  A weight consists of both pounds and ounces.
+Declare the class in a header file called EnglishWeight.h and implement the class in separate file called EnglishWeight.cpp.
+Include appropriate constructors.
+Include new versions of the stream insertion and stream extraction operators appropriate to this class.
+Provide the following operators:
+
+EnglishWeight1 + EnglishWeight2
+               
+EnglishWeight1 - EnglishWeight2
+               
+EnglishWeight1 / EnglishWeight2 (this one takes some thought!)
+               
+EnglishWeight1 * number
+               
+number * EnglishWeight1
+               
+Englishweight1 / number
+
+Englishweight2 / number    
+Write a small test program in a file called EW_Driver.cpp to allow a user to enter two separate weights (both weights must include pounds and ounces) and a number. The program will output the results of the six operations described above.
+Include the standard header comment for each of the three modules, fully comment the body of your code and provide a user friendly interface.
+  // FILENAME:
+  // PROGRAMMER:
+  // DATE:
+  // COMPILER:
+  // REQUIRED:
+  // PURPOSE:
+Submit your three source code files (EW_Driver.cpp, EnglishWeight.cpp and EnglishWeight.h) as attachments to the drop box for this module's programming assignment. You can find the drop box at the end of this module's tab page. Do not compress your attachments. Please review the requirements for submitting on the course syllabus.
