@@ -59,6 +59,7 @@ class	DoubleStack
 
 		// Display the stack to the user.
 	void display();
+
 	
 	private:
 		double	*data;		// Pointer to dynamic stack area.

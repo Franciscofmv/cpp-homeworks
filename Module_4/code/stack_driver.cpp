@@ -1,3 +1,13 @@
+// FILENAME: stack_driver.cpp
+// PROGRAMMER: Francisco Moyet Vargas
+// DATE: 06/01/2025
+// COMPILER: Apple clang version 15.0.0 (clang-1500.3.9.4)
+// REQUIRED: stack_driver.cpp, dblstk.h, dblstk.cpp
+// PURPOSE:
+//          Create two DoubleStacks (LIFO) objects.
+//          Allow the user to perform multiple operations on the defined stacks.
+
+
 #include <iostream>
 #include "dblstk.h"
 
@@ -10,17 +20,16 @@ int main(){
     int option = 0;
     std::cout << "\n";
     while(true){
-
-        std::cout << "Select an option:\n";
+        std::cout << "******* Menu *******\n";
         std::cout << "1. Display stack 1\n";
         std::cout << "2. Place a double value onto the top of stack 1\n";
         std::cout << "3. Remove a value from the top of stack 1\n";
         std::cout << "4. Check the total capacity stack 1\n";
-        std::cout << "5. Check current number of items on stack 1\n";
+        std::cout << "5.  Check current number of items on stack 1\n";
         std::cout << "6. Copy stack 1 to stack 2\n";
         std::cout << "7. Check to see if the two stacks are equal\n";
         std::cout << "8. Quit\n";
-
+        std::cout << "Select an option: ";
         if (std::cin >> option){}
         else{
             std::cout << "\n****\n";

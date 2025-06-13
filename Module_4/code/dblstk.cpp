@@ -1,3 +1,12 @@
+// FILENAME: dblstk.cpp
+// PROGRAMMER: Francisco Moyet Vargas
+// DATE: 06/02/2025
+// COMPILER: Apple clang version 15.0.0 (clang-1500.3.9.4)
+// REQUIRED: dblstk.cpp, dblstk.h
+// PURPOSE:
+//          Define the member functions, constructors, and data of the
+//          DoubleStack class. 
+
 #include <iostream>
 #include <string>
 
@@ -12,25 +21,26 @@ DoubleStack::DoubleStack(size_t	capacity){
     }
     this->stack_capacity = capacity;
     this->stack_size = 0;
+    this->tos = 0;
 
 }
 // Copy Constructor:
 DoubleStack::DoubleStack(const DoubleStack& rhs){
-    size_t i;
-    size_t capacity = rhs.stack_capacity;
-    this->data = new double[capacity];
-    this->stack_size = capacity; 
-
-    for(i=0; i<capacity; ++i){
-        this->data[i] = rhs.data[i];
+    this->stack_capacity = rhs.stack_capacity;
+    this->stack_size = rhs.stack_size;
+    this->tos = rhs.tos;
+    this->data = new double[this->stack_capacity];
+    for (size_t i = 0; i < this->stack_size; ++i){
+        this->data[i] = rhs.data[i];  
     }
+
 
     
 }
 // Destructor:
 DoubleStack::~DoubleStack(void){
-    delete [] data;
-    stack_size = 0;
+    delete [] this->data;
+    this->stack_size = 0;
 }
 	 
 // Overloading '=' operator:
@@ -83,11 +93,16 @@ int DoubleStack::push(double&   item ){
         }
         this->data = data_temp;
         this->stack_size = new_size;
+        this->tos = item;
+        std::cout << "\n****\n";
+        std::cerr << "*** Number "<< item << " was added succsessfully to the top of stack.\n";
+        std::cout << "****\n\n";
+
     }
     else{
         std::cout << "\n****\n";
-        std::cerr << "*** Number was not added. Stack is full.\n";
-        std::cout << "\n****\n\n";
+        std::cerr << "*** Number "<<item<<" was not added. Stack is at maximum capacity.\n";
+        std::cout << "****\n\n";
 
         return 0;
     }
@@ -117,16 +132,22 @@ int	DoubleStack::pop( double&	item ){
         this->data = new(std::nothrow) double[this->stack_size];
         if (!data){
             std::cout << "\n****\n";
-            std::cerr << "*** Memory allocation failed.\n";
+            std::cerr << "*** Memory allocation failed.";
             std::cout << "\n****\n\n";
             return 0;
         }
         this->data = data_temp;
+        if(new_size==0){
+            this->tos = 1;
+        }
+        else{
+            this->tos = this->data[new_size - 1];
+        }
 
     }
     else{
         std::cout << "\n****\n";
-        std::cout << "Stack is empty.";
+        std::cout << "Stack is empty. ";
         std::cout << "\n****\n\n";
         return 0;
     }
@@ -147,7 +168,7 @@ void DoubleStack::display(){
     unsigned int n = this->stack_size;
     std::cout << "\n****\n";
     if (n != 0){
-        std::cout << "From first to last added: ";
+        std::cout << "From First to Last added: ";
         for (unsigned int i = 0; i < n ; ++i){
             std::cout << this-> data[i] << " ";
         }
