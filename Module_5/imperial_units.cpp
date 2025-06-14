@@ -1,4 +1,8 @@
-#include "distances.h"
+#include <iostream>
+#include "imperial_units.h"
+#include "international_units.h"
+
+using std::cout;
 
     // ImperialUnits Constructor definitions:
 ImperialUnits::ImperialUnits(){
@@ -27,4 +31,22 @@ ImperialUnits::ImperialUnits(InternationalUnits& iu){
     // Get feet:
     feet = total_yards * ft_in_one_yd/one_yd;
 
+}
+    // Print Data:
+void ImperialUnits::print(){
+    cout <<"\n***\n";
+    cout << "You entered:\n";
+    cout<< furlong << " fur, " <<yards << " yd, " << "and "<<feet << "ft";
+    cout <<"\n***\n";
+}
+
+    // Conversion to International Units:
+ImperialUnits::operator InternationalUnits(){
+    double total_meters = (furlong * m_in_one_fur) + (yards * m_in_one_yd) + (feet * m_in_one_ft); 
+    int whole_meters = static_cast<int>(total_meters);
+    double m = total_meters - whole_meters;
+    int km = whole_meters/1000;
+    
+    return InternationalUnits(km, m);
+    
 }
