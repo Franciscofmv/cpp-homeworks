@@ -1,0 +1,20 @@
+person
+
+name
+date of birth
+gender
+SSN
+address
+home phone number
+
+ 
+
+employee
+
+hire date
+salary
+location
+work phone number
+
+ 
+
